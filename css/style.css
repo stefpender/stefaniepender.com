@@ -395,6 +395,19 @@ p:last-child {
   max-width: 60ch;
 }
 
+/* Two-up figure row. Mixed aspect ratios are fine — tops align. */
+.figs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+  margin: clamp(1.5rem, 4vw, 2.5rem) 0;
+}
+
+.figs .figure {
+  margin: 0;
+}
+
 .back {
   display: inline-block;
   margin-top: clamp(2.5rem, 6vw, 4rem);
