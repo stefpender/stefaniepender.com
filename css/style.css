@@ -366,6 +366,16 @@ p:last-child {
   color: var(--ink-soft);
 }
 
+/* Multi-item Role/Team values inside a facts list */
+.facts__list {
+  margin: 0;
+  padding-left: 1.05rem;
+}
+
+.facts__list li {
+  margin-bottom: 0.25rem;
+}
+
 /* --- Article header (project pages) ------------------------------------- */
 
 .article__head {
