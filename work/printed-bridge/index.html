@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dar: A 5 m 3D-Printed Bridge — Stefanie Pender</title>
+    <title>Dar Smart Bridges — Stefanie Pender</title>
     <meta
       name="description"
-      content="Dar: a robotically fabricated 5 metre 3D-printed pedestrian bridge — large-format additive manufacturing, embedded sensing, and a live digital twin."
+      content="Dar Smart Bridges: 2 m and 5 m robotically 3D-printed pedestrian bridges with embedded strain and fibre-optic sensing, printed on an ABB IRB 4600 with a Strangpresse extruder."
     />
     <link rel="canonical" href="https://stefaniepender.com/work/printed-bridge/" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Dar: A 5 m 3D-Printed Bridge — Stefanie Pender" />
+    <meta property="og:title" content="Dar Smart Bridges — Stefanie Pender" />
     <meta property="og:url" content="https://stefaniepender.com/work/printed-bridge/" />
     <meta property="og:image" content="https://stefaniepender.com/images/bridge-hero.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -36,7 +36,7 @@
     <main id="main" class="wrap">
       <div class="article__head">
         <p class="eyebrow">Large-format additive &middot; 2022</p>
-        <h1>Dar: A 5&nbsp;m 3D-Printed Bridge</h1>
+        <h1>Dar Smart Bridges</h1>
       </div>
 
       <figure class="figure">
@@ -54,12 +54,11 @@
 
       <div class="prose">
         <p>
-          <!-- EDIT: add the material and the total print time — the two numbers
-               an engineer will look for and I don't have. -->
-          A 5&nbsp;metre pedestrian bridge, robotically fabricated with Dar as a
-          large-format print on a six-axis industrial arm, then instrumented and
-          exhibited as a walkable structure. It carried live public load while
-          streaming sensor data to a digital twin.
+          Two 3D-printed pedestrian bridges — a 2&nbsp;metre prototype and a
+          5&nbsp;metre span — built with the engineering firm Dar. Both were
+          printed as large-format extrusions on a six-axis arm riding a linear
+          track, instrumented with embedded strain and fibre-optic sensors, and
+          exhibited as structures the public actually walked across.
         </p>
 
         <dl class="facts">
@@ -72,9 +71,18 @@
           <dd>Dar, with the Autodesk Technology Center, Boston</dd>
 
           <dt>Stack</dt>
-          <!-- EDIT: e.g. ABB IRB 4600 + IRBT track, RobotStudio, Fusion, custom
-               pellet extruder, Project Dasher -->
-          <dd>Robot, toolpath software, extrusion hardware, sensing</dd>
+          <dd>
+            ABB IRB&nbsp;4600 on an IRBT linear track, Strangpresse extruder,
+            RobotStudio, PowerMill, Faro Focus scanning, Project&nbsp;Dasher
+          </dd>
+
+          <dt>Timeline</dt>
+          <dd>
+            Scope agreed June&nbsp;2020 &middot; 2&nbsp;m printing March&nbsp;2021
+            &middot; 2&nbsp;m debut at IRF November&nbsp;2021 &middot;
+            5&nbsp;m printing July&nbsp;2022 &middot; 5&nbsp;m debut at Autodesk
+            University September&nbsp;2022
+          </dd>
 
           <dt>Links</dt>
           <dd><a href="#">Write-up</a> &middot; <a href="#">Video</a></dd>
@@ -82,11 +90,18 @@
 
         <h2>Printing it</h2>
         <p>
-          <!-- EDIT: the constraint that actually bit. Bead geometry? Thermal
-               warping? Reach envelope? Cycle time? -->
-          The span was printed in continuous beads on a robot riding a linear
-          track. Describe the hard part here — the constraint that shaped every
-          other decision.
+          The spans were printed in continuous beads on an ABB IRB&nbsp;4600
+          riding a linear track, with a Strangpresse extruder on the flange.
+          Parts of the geometry were printed on an angled bed rather than flat —
+          which keeps the bead perpendicular to the surface where the structure
+          curves, at the cost of a much harder setup.
+        </p>
+        <p>
+          <!-- EDIT: add the material you settled on and the total print time. -->
+          Material selection was its own research track: tensile strength along
+          and across the print direction, melt and glass-transition temperature,
+          maximum extrusion speed, UV and ageing behaviour, recyclability, and
+          bead quality all had to land at once.
         </p>
       </div>
 
@@ -142,11 +157,43 @@
       </figure>
 
       <div class="prose">
+        <h2>Designing for the process</h2>
+        <p>
+          The geometry was generatively designed against what the printer could
+          actually do, not the other way round: a maximum overhang angle of
+          45&deg;, a minimum element thickness of 32&nbsp;mm, and a fixed print
+          direction. Toolpaths came out of the Fusion manufacture workspace
+          through a robotics add-in that emitted native robot code.
+        </p>
+
+      </div>
+
+      <figure class="figure">
+        <img
+          src="/images/dar-angled.jpg"
+          alt="An ABB robot printing onto a steeply angled print bed in the shop, with an operator monitoring from a workstation"
+          width="1400"
+          height="787"
+          loading="lazy"
+        />
+        <figcaption>
+          Angled printing — tilting the bed keeps the bead square to the surface
+          where the structure curves.
+        </figcaption>
+      </figure>
+
+      <div class="prose">
         <h2>Instrumenting it</h2>
         <p>
-          <!-- EDIT: what sensors, how many, what they measured, where the data went. -->
-          Sensors were embedded during the print rather than added afterward.
-          Describe what they measured and what the twin did with it.
+          Sensors went in during the print rather than being bonded on afterward:
+          strain gauges and fibre Bragg grating (FBG) sensors placed at
+          structurally meaningful points, feeding a live model of the span.
+        </p>
+        <p>
+          Interlayer temperature was monitored throughout the print, because bond
+          strength depends on how hot the previous layer still is when the next
+          one lands. Above 110&nbsp;&deg;C was the target; 80&ndash;110&nbsp;&deg;C
+          a warning band; below 80&nbsp;&deg;C a risk of a weak interlayer bond.
         </p>
       </div>
 
@@ -164,7 +211,7 @@
       <div class="prose">
         <h2>What I'd do differently</h2>
         <p>
-          <!-- EDIT: keep this section. It's the most credible thing on the page. -->
+          <!-- EDIT: keep this section — it's the most credible thing on the page. -->
           One honest paragraph.
         </p>
       </div>
