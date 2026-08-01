@@ -28,7 +28,7 @@
         <nav class="nav" aria-label="Primary">
           <a href="/#work" aria-current="page">Work</a>
           <a href="/about/">About</a>
-          <a href="mailto:stefpender@gmail.com">Contact</a>
+          <a data-mail href="#">Contact</a>
         </nav>
       </div>
     </header>
@@ -157,10 +157,22 @@
           <span class="footer__credit">Project photography &copy; Autodesk, Inc.</span>
         </p>
         <nav class="footer__links" aria-label="Elsewhere">
-          <a href="mailto:stefpender@gmail.com">Email</a>
+          <a data-mail href="#">Email</a>
           <a href="https://www.linkedin.com/in/stefanie-pender-4baa75116">LinkedIn</a>
         </nav>
       </div>
     </footer>
+    <script>
+      // Email is assembled at runtime so the address never appears as a
+      // contiguous string in the source. Harvesters that don't run JS get nothing.
+      (function () {
+        var u = "stefpender", d = ["gmail", "com"].join(".");
+        var addr = u + String.fromCharCode(64) + d;
+        document.querySelectorAll("[data-mail]").forEach(function (el) {
+          el.setAttribute("href", "mai" + "lto:" + addr);
+          if (el.hasAttribute("data-mail-text")) el.textContent = addr;
+        });
+      })();
+    </script>
   </body>
 </html>
