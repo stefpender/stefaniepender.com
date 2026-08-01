@@ -254,9 +254,22 @@ p:last-child {
   border: 0;
 }
 
-.video-figure {
+/* .figure sets a margin shorthand later in this file, so these use
+   .figure.video-figure to win on specificity rather than order. */
+.figure.video-figure {
   max-width: none;
   margin: 0 0 clamp(2.5rem, 6vw, 3.5rem);
+}
+
+/* Break the video out well past the text column, centred, and scale it with
+   the viewport so it never overflows at the breakpoint. */
+@media (min-width: 62rem) {
+  .figure.video-figure {
+    --vid-w: min(calc(100vw - 4rem), 96rem);
+    width: var(--vid-w);
+    margin-left: calc(50% - var(--vid-w) / 2);
+    margin-right: 0;
+  }
 }
 
 /* --- Work grid ----------------------------------------------------------- */
