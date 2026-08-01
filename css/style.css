@@ -229,27 +229,15 @@ p:last-child {
   margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
 }
 
-.block-head {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 400;
-  margin: 0 0 0.9rem;
-}
-
-.intro-block {
-  border-top: 1px solid var(--rule);
-  padding-top: clamp(1.5rem, 3vw, 2.25rem);
-  margin-top: clamp(1.5rem, 3vw, 2.25rem);
-}
-
 .section__intro {
   max-width: 58ch;
-  margin: -0.75rem 0 clamp(1.75rem, 4vw, 2.75rem);
+  margin: 0 0 1.1em;
   color: var(--ink-soft);
   font-size: 1rem;
+}
+
+.section__intro:last-of-type {
+  margin-bottom: 0;
 }
 
 /* Responsive 16:9 video embed */
