@@ -1,0 +1,441 @@
+/* ==========================================================================
+   stefaniepender.com — single stylesheet
+   Edit the tokens in :root to reskin the whole site.
+   ========================================================================== */
+
+:root {
+  color-scheme: light dark;
+
+  /* Type */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica,
+    Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    monospace;
+
+  /* Color — light */
+  --bg: #fbfaf8;
+  --bg-raised: #ffffff;
+  --ink: #16150f;
+  --ink-soft: #4e4c44;
+  --ink-faint: #85827a;
+  --rule: #e2dfd8;
+  --accent: #b4462b;
+  --accent-soft: #f4e7e2;
+
+  /* Layout */
+  --measure: 68rem;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --radius: 4px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #100f0d;
+    --bg-raised: #1a1917;
+    --ink: #f2f0ea;
+    --ink-soft: #b6b2a8;
+    --ink-faint: #7e7a71;
+    --rule: #2b2925;
+    --accent: #f08b6d;
+    --accent-soft: #2a1d18;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: text-decoration-color 0.18s ease, color 0.18s ease;
+}
+
+a:hover {
+  text-decoration-color: var(--accent);
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.12;
+  letter-spacing: -0.021em;
+  font-weight: 600;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0 0 1.1em;
+  text-wrap: pretty;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Utilities ----------------------------------------------------------- */
+
+.wrap {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--bg-raised);
+  color: var(--ink);
+  padding: 0.75rem 1rem;
+  z-index: 10;
+}
+
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0;
+}
+
+/* --- Header -------------------------------------------------------------- */
+
+.masthead {
+  padding-block: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.masthead__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.wordmark {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-decoration: none;
+}
+
+.wordmark:hover {
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9375rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--ink-soft);
+}
+
+.nav a:hover,
+.nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.3em;
+}
+
+/* --- Hero ---------------------------------------------------------------- */
+
+.hero {
+  padding-block: clamp(2.5rem, 8vw, 6rem) clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.hero h1 {
+  font-size: clamp(2.25rem, 7vw, 4rem);
+  max-width: 22ch;
+}
+
+.hero__lede {
+  margin-top: 1.5rem;
+  font-size: clamp(1.0625rem, 1.6vw, 1.3125rem);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.hero__links {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  font-size: 0.9375rem;
+}
+
+/* --- Section headings ---------------------------------------------------- */
+
+.section {
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+}
+
+.section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+/* --- Work grid ----------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: clamp(2rem, 4vw, 3.25rem) clamp(1.25rem, 3vw, 2.5rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card__frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  border: 1px solid var(--rule);
+  aspect-ratio: 4 / 3;
+}
+
+.card__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.card:hover .card__frame img,
+.card:focus-visible .card__frame img {
+  transform: scale(1.035);
+}
+
+/* Feature card — put class="is-wide" on the <li> (the grid child, not the <a>)
+   to make one project span the full grid width. */
+@media (min-width: 52rem) {
+  .grid > .is-wide {
+    grid-column: 1 / -1;
+  }
+
+  .grid > .is-wide .card__frame {
+    aspect-ratio: 21 / 9;
+  }
+
+  .grid > .is-wide .card__title {
+    font-size: 1.5rem;
+  }
+
+  .grid > .is-wide .card__desc {
+    max-width: 58ch;
+  }
+}
+
+.card__title {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.card:hover .card__title,
+.card:focus-visible .card__title {
+  color: var(--accent);
+}
+
+.card__meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 0.4rem;
+}
+
+.card__desc {
+  margin-top: 0.65rem;
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* --- Prose (about + project pages) -------------------------------------- */
+
+.prose {
+  max-width: 62ch;
+}
+
+.prose h2 {
+  font-size: 1.25rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose ul {
+  padding-left: 1.15rem;
+  margin: 0 0 1.1em;
+}
+
+.prose li {
+  margin-bottom: 0.35em;
+}
+
+.prose a {
+  text-decoration-color: var(--accent);
+}
+
+/* Key/value list for contact, CV rows, project facts */
+.facts {
+  display: grid;
+  grid-template-columns: minmax(6rem, max-content) 1fr;
+  gap: 0.6rem 1.75rem;
+  margin: 0;
+  font-size: 0.9375rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.25rem;
+}
+
+.facts dt {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-top: 0.15rem;
+}
+
+.facts dd {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* --- Article header (project pages) ------------------------------------- */
+
+.article__head {
+  padding-block: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.article__head h1 {
+  font-size: clamp(1.875rem, 5vw, 3rem);
+  max-width: 28ch;
+  margin-top: 0.75rem;
+}
+
+.figure {
+  margin: clamp(2rem, 5vw, 3.5rem) 0;
+}
+
+.figure img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+}
+
+.figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--ink-faint);
+  max-width: 60ch;
+}
+
+.back {
+  display: inline-block;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  font-size: 0.9375rem;
+  text-decoration: none;
+  color: var(--ink-soft);
+}
+
+.back:hover {
+  color: var(--accent);
+}
+
+/* --- Footer -------------------------------------------------------------- */
+
+.footer {
+  margin-top: clamp(3rem, 8vw, 6rem);
+  border-top: 1px solid var(--rule);
+  padding-block: 2rem clamp(2rem, 5vw, 3rem);
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

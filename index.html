@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stefanie Pender</title>
+
+    <!-- EDIT: one sentence, ~155 chars. Shows in Google results and link previews. -->
+    <meta
+      name="description"
+      content="Stefanie Pender — roboticist working on large-format additive manufacturing, industrial robot workcells, and automation for the built environment."
+    />
+
+    <link rel="canonical" href="https://stefaniepender.com/" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Stefanie Pender" />
+    <meta
+      property="og:description"
+      content="Roboticist working on large-format additive manufacturing, industrial robot workcells, and automation for the built environment."
+    />
+    <meta property="og:url" content="https://stefaniepender.com/" />
+    <meta property="og:image" content="https://stefaniepender.com/images/bridge-hero.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="masthead">
+      <div class="wrap masthead__inner">
+        <a class="wordmark" href="/">Stefanie Pender</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#work" aria-current="page">Work</a>
+          <a href="/about/">About</a>
+          <!-- EDIT: swap for a personal address if you'd rather not use work email -->
+          <a href="mailto:stefanie.pender@t-robotics.ai">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ================= HERO ================= -->
+      <section class="hero wrap">
+        <!-- EDIT: the one thing you want someone to know in the first two seconds. -->
+        <h1>Roboticist. I build machines that make things at building scale.</h1>
+        <p class="hero__lede">
+          <!-- EDIT: verify and personalize. Two or three sentences: what you do,
+               where, and what you care about. -->
+          Industrial robotics for large-format additive manufacturing, mass
+          timber, and construction. I work on the seam between toolpath software
+          and machines that have to survive contact with real material.
+        </p>
+        <p class="hero__links">
+          <a href="#work">Selected work</a>
+          <a href="/about/">About &amp; CV</a>
+          <!-- EDIT: real URLs, or delete -->
+          <a href="https://github.com/">GitHub</a>
+          <a href="https://www.linkedin.com/">LinkedIn</a>
+        </p>
+      </section>
+
+      <!-- ================= WORK GRID =================
+           To add a project: copy one <li> block and edit it.
+           - class="card card--wide" makes a card span the full grid width.
+           - Keep width/height matching the image so the page doesn't jump.
+      -->
+      <section class="section wrap" id="work">
+        <div class="section__head">
+          <h2 class="eyebrow">Selected work</h2>
+          <p class="eyebrow">2022 &ndash; 2026</p>
+        </div>
+
+        <ul class="grid">
+          <li class="is-wide">
+            <a class="card" href="/work/printed-bridge/">
+              <div class="card__frame">
+                <img
+                  src="/images/bridge-hero.jpg"
+                  alt="A person walking across a 3D-printed pedestrian bridge on an exhibition floor, with a live digital-twin readout of the structure on a screen beside it"
+                  width="1680"
+                  height="720"
+                  loading="eager"
+                />
+              </div>
+              <div>
+                <h3 class="card__title">3D-Printed Pedestrian Bridge</h3>
+                <p class="card__meta">Large-format additive &middot; 2022</p>
+                <p class="card__desc">
+                  <!-- EDIT: confirm span, material, and print time. -->
+                  A robotically extruded pedestrian bridge — printed on a
+                  six-axis arm, instrumented with embedded sensors, and walked on
+                  by several thousand people at Autodesk University.
+                </p>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a class="card" href="/work/drywall-finishing/">
+              <div class="card__frame">
+                <img
+                  src="/images/drywall-card.jpg"
+                  alt="An ABB robot arm on a mobile base applying joint compound to a drywall panel in a robotics lab"
+                  width="1400"
+                  height="1050"
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <h3 class="card__title">Robotic Drywall Finishing</h3>
+                <p class="card__meta">Construction automation &middot; 2024</p>
+                <p class="card__desc">
+                  <!-- EDIT -->
+                  An arm on a mobile base taping and finishing wall assemblies —
+                  compliant tooling against surfaces that are never where the
+                  model says they are.
+                </p>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a class="card" href="/work/mass-timber/">
+              <div class="card__frame">
+                <img
+                  src="/images/timber-card.jpg"
+                  alt="A robot arm scanning a glue-laminated timber beam supported on stands, with a technician operating a sensor on a tripod"
+                  width="1400"
+                  height="1050"
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <h3 class="card__title">Mass Timber Inspection Cell</h3>
+                <p class="card__meta">Robotics &amp; sensing &middot; 2024</p>
+                <p class="card__desc">
+                  <!-- EDIT: name the collaborator if you can (looks like Univ. of Houston). -->
+                  Robot-mounted scanning of glulam members — automating an
+                  inspection pass that had been done by hand.
+                </p>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a class="card" href="/work/nondestructive-evaluation/">
+              <div class="card__frame">
+                <img
+                  src="/images/nde-card.jpg"
+                  alt="A false-color thermographic scan of a material sample showing internal voids as dark spots"
+                  width="1400"
+                  height="1050"
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <h3 class="card__title">Non-Destructive Evaluation</h3>
+                <p class="card__meta">Sensing &middot; 2024</p>
+                <p class="card__desc">
+                  <!-- EDIT -->
+                  A tool for assessing material quality without cutting the part
+                  open — surfacing voids and bond defects as a scannable map.
+                </p>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a class="card" href="/work/robotics-lab/">
+              <div class="card__frame">
+                <img
+                  src="/images/shop-card.jpg"
+                  alt="Overhead view of an ABB robot arm on a rail machining plywood, with an operator holding a teach pendant"
+                  width="1400"
+                  height="1050"
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <h3 class="card__title">Robotics Lab &amp; Workcells</h3>
+                <p class="card__meta">Infrastructure &middot; 2021&ndash;2025</p>
+                <p class="card__desc">
+                  <!-- EDIT -->
+                  Specifying, integrating, and safety-certifying multi-robot
+                  workcells — plus the training that let other people run them.
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer__inner">
+        <p>&copy; 2026 Stefanie Pender</p>
+        <nav class="footer__links" aria-label="Elsewhere">
+          <a href="mailto:stefanie.pender@t-robotics.ai">Email</a>
+          <a href="https://github.com/">GitHub</a>
+          <a href="https://www.linkedin.com/">LinkedIn</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
