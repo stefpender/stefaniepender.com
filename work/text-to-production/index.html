@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text-to-Production — Stefanie Pender</title>
+    <meta
+      name="description"
+      content="Generative AI for robotic assembly: a text prompt becomes a mesh, a voxel decomposition, a toolpath sequence, and a physically assembled structure."
+    />
+    <link rel="canonical" href="https://stefaniepender.com/work/text-to-production/" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Text-to-Production — Stefanie Pender" />
+    <meta property="og:url" content="https://stefaniepender.com/work/text-to-production/" />
+    <meta property="og:image" content="https://stefaniepender.com/images/t2p-hero.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="masthead">
+      <div class="wrap masthead__inner">
+        <a class="wordmark" href="/">Stefanie Pender</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="/#work" aria-current="page">Work</a>
+          <a href="/about/">About</a>
+          <a href="mailto:stefpender@gmail.com">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <div class="article__head">
+        <p class="eyebrow">Generative AI &amp; robotics &middot; 2024</p>
+        <h1>Text-to-Production</h1>
+      </div>
+
+      <figure class="figure">
+        <img
+          src="/images/t2p-hero.jpg"
+          alt="A Universal Robots cobot and an ABB arm assembling white lattice voxel modules into towers on a steel fixture table"
+          width="1680"
+          height="720"
+        />
+        <figcaption>
+          Two arms assembling the voxel modules that came out of the pipeline.
+        </figcaption>
+      </figure>
+
+      <div class="prose">
+        <p>
+          Type &ldquo;a simple chair,&rdquo; get a physically assembled chair.
+          This pipeline takes a text prompt through a generative 3D model, into a
+          voxel decomposition, into a robot toolpath sequence, and out the other
+          end as a structure two robots actually build — with no human in the
+          loop after the prompt.
+        </p>
+
+        <dl class="facts">
+          <dt>Role</dt>
+          <!-- EDIT — IMPORTANT: this came out of an intern presentation
+               (Alex Shorten) in your OneDrive. Decide how to credit it: your
+               project, a project you led/supervised, or a team effort. Be
+               explicit — mis-credited work is the one thing that really costs
+               you. Delete this page if it isn't yours to show. -->
+          <dd>Add your role here — see the note in the source</dd>
+
+          <dt>Team</dt>
+          <dd>Autodesk Technology Center, Boston</dd>
+
+          <dt>Stack</dt>
+          <dd>
+            Project Bernini (generative 3D), ARaaS, Universal Robots, ABB
+          </dd>
+
+          <dt>Links</dt>
+          <dd><a href="#">Write-up</a> &middot; <a href="#">Video</a></dd>
+        </dl>
+
+        <h2>The pipeline</h2>
+        <p>
+          The interesting part is where the time goes. Generation dominates;
+          everything between the mesh and the moving robot is effectively free.
+          That ratio is the argument — once a model can produce buildable
+          geometry, the bottleneck stops being design and starts being the cell.
+        </p>
+      </div>
+
+      <figure class="figure">
+        <img
+          src="/images/t2p-pipeline.jpg"
+          alt="Diagram of the data pipeline: Project Bernini generates a mesh in about 25 seconds, voxelization takes about 50 milliseconds, toolpath sequencing about 1 millisecond, and robotic assembly via ARaaS takes 1 to 2 minutes"
+          width="1600"
+          height="900"
+          loading="lazy"
+        />
+        <figcaption>
+          Text input to assembled structure. Mesh generation ~25&nbsp;s,
+          voxelization ~50&nbsp;ms, toolpath sequencing ~1&nbsp;ms, robotic
+          assembly 1&ndash;2&nbsp;minutes.
+        </figcaption>
+      </figure>
+
+      <div class="prose">
+        <h2>Assembly</h2>
+        <p>
+          <!-- EDIT: the hard part. Placement tolerance? Gripper design? How the
+               two arms avoided each other? Sequencing so the structure stays
+               stable as it goes up? -->
+          Describe what made the physical half hard — the part a rendering never
+          shows.
+        </p>
+      </div>
+
+      <figure class="figure">
+        <img
+          src="/images/t2p-timber.jpg"
+          alt="A Universal Robots cobot and an ABB arm assembling stacked timber blocks on a fixture table in the robotics lab"
+          width="1600"
+          height="900"
+          loading="lazy"
+        />
+        <figcaption>The same cell working in timber.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <h2>Why it matters</h2>
+        <p>
+          <!-- EDIT: connect it to what you're doing now at Trener — this is the
+               clearest bridge on the site between your Autodesk work and
+               "democratize automation." -->
+          Add the through-line to your current work.
+        </p>
+      </div>
+
+      <a class="back" href="/#work">&larr; Back to work</a>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer__inner">
+        <p>&copy; 2026 Stefanie Pender</p>
+        <nav class="footer__links" aria-label="Elsewhere">
+          <a href="mailto:stefpender@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/stefanie-pender-4baa75116">LinkedIn</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
