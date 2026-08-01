@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" width="1000" height="1250" role="img" aria-label="Placeholder image">
-  <rect width="1000" height="1250" fill="#e7e3dd"/>
-  <g fill="none" stroke="#c6c0b6" stroke-width="2">
-    <circle cx="500" cy="625" r="110"/>
-    <path d="M258 625 h110 M632 625 h110 M500 383 v110 M500 757 v110"/>
-  </g>
-  <text x="500" y="955" fill="#c6c0b6" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" letter-spacing="2" text-anchor="middle">REPLACE ME — 1000×1250</text>
-</svg>

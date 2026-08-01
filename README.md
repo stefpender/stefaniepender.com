@@ -17,9 +17,14 @@ Open <http://localhost:8000>. Ctrl-C to stop. Hard-refresh (Cmd-Shift-R) after C
 ```
 index.html              home — hero + work grid
 about/index.html        about + CV + contact
-work/project-one/       project page template (duplicate this per project)
+work/printed-bridge/    featured project (the fullest example — copy this one)
+work/drywall-finishing/
+work/spot/
+work/timber-truss/
+work/nondestructive-evaluation/
+work/robotics-lab/
 css/style.css           all styling; design tokens at the top of the file
-images/                 placeholder-*.svg are stand-ins — replace them
+images/                 built from /Volumes/2025_Backup — see "Images" below
 404.html                not-found page
 CNAME                   tells GitHub Pages the custom domain. Do not delete.
 .nojekyll               skip Jekyll processing
@@ -27,16 +32,24 @@ sitemap.xml             update when you add a page
 ```
 
 Everywhere you need to write something is marked `<!-- EDIT: ... -->` in the HTML.
+Search for `EDIT` to find every unfinished spot:
+
+```sh
+grep -rn "EDIT:" --include="*.html" .
+```
 
 ## Add a project
 
 ```sh
-cp -R work/project-one work/my-new-thing
+cp -R work/printed-bridge work/my-new-thing
 ```
 
 Then edit `work/my-new-thing/index.html`, and add a card to the grid in
 `index.html` by copying an existing `<li>` block. The folder name is the URL:
 `/work/my-new-thing/`. Add the URL to `sitemap.xml`.
+
+Put `class="is-wide"` on the `<li>` (not the `<a>`) to make a project span the
+full grid width, the way the bridge does. Wide cards want a 21:9 image.
 
 ## Replace the placeholder images
 
