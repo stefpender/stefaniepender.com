@@ -361,6 +361,10 @@ p:last-child {
   padding-top: 0.15rem;
 }
 
+.at {
+  color: var(--ink-faint);
+}
+
 .facts dd {
   margin: 0;
   color: var(--ink-soft);
