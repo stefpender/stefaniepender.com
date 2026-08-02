@@ -273,6 +273,16 @@ p:last-child {
   border: 0;
 }
 
+/* Self-hosted <video>. Global img rules don't cover it, so constrain it here. */
+.video-el {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  background: #000;
+}
+
 /* .figure sets a margin shorthand later in this file, so these use
    .figure.video-figure to win on specificity rather than order. */
 .figure.video-figure {
@@ -280,8 +290,8 @@ p:last-child {
   margin: clamp(2rem, 4vw, 2.75rem) 0 clamp(2.5rem, 6vw, 3.5rem);
 }
 
-/* Break the video out well past the text column, centred, and scale it with
-   the viewport so it never overflows at the breakpoint. */
+/* Break the embedded video out past the text column, centred, scaling with the
+   viewport so it never overflows at the breakpoint. */
 @media (min-width: 62rem) {
   .figure.video-figure {
     --vid-w: min(calc(100vw - 4rem), 96rem);
