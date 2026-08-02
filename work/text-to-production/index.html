@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Text-to-Production &middot; Stefanie Pender</title>
+    <title>Text to Robotic Assembly &middot; Stefanie Pender</title>
     <meta
       name="description"
       content="Generative AI for robotic assembly: a text prompt becomes a mesh, a voxel decomposition, a toolpath sequence, and a physically assembled structure."
@@ -13,7 +13,7 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Text-to-Production &middot; Stefanie Pender" />
+    <meta property="og:title" content="Text to Robotic Assembly &middot; Stefanie Pender" />
     <meta property="og:url" content="https://stefaniepender.com/work/text-to-production/" />
     <meta property="og:image" content="https://stefaniepender.com/images/t2p-hero.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -36,7 +36,7 @@
     <main id="main" class="wrap">
       <div class="article__head">
         <p class="eyebrow">Generative AI &amp; robotics &middot; 2024</p>
-        <h1>Text-to-Production</h1>
+        <h1>Text to Robotic Assembly</h1>
       </div>
 
       <figure class="figure">
@@ -54,11 +54,10 @@
       <div class="prose">
         <p>
           Part of Adaptive Product Assembly (APA) at Autodesk. Type &ldquo;a
-          simple chair,&rdquo; get a physically assembled chair.
-          This pipeline takes a text prompt through a generative 3D model, into a
-          voxel decomposition, into a robot toolpath sequence, and out the other
-          end as a structure two robots actually build, with no human in the loop
-          after the prompt.
+          simple chair,&rdquo; and get a chair a robot actually builds. The
+          pipeline runs a text prompt through a generative 3D model, works out
+          what the resulting shape should be made of, and hands a build sequence
+          to the cell.
         </p>
 
         <dl class="facts">
@@ -80,8 +79,7 @@
             <a href="https://arxiv.org/abs/2511.02162"
               >Text to Robotic Assembly of Multi-Component Objects using 3D
               Generative AI and Vision Language Models</a
-            >
-            NeurIPS 2025, Creative AI Track
+            >. NeurIPS 2025, Creative AI Track.
           </dd>
 
           <dt>Stack</dt>
@@ -93,10 +91,22 @@
 
         <h2>The pipeline</h2>
         <p>
-          The interesting part is where the time goes. Generation dominates;
-          everything between the mesh and the moving robot is effectively free.
-          That ratio is the argument. Once a model can produce buildable geometry,
-          the bottleneck stops being design and starts being the cell.
+          Generating a shape is the easy half. The hard part is deciding what
+          the shape should be made of. A chair needs a seat and a back that are
+          flat panels, and legs and a frame that are structure, and nothing in a
+          generated mesh says which is which.
+        </p>
+        <p>
+          So the pipeline hands that judgement to a vision-language model. It
+          reads the mesh and reasons about geometry and function together to
+          decide which regions want panels and which want structural blocks,
+          zero-shot, with no training on the component library. Get one wrong and
+          you say so in conversation, and it revises.
+        </p>
+        <p>
+          Across 5 objects judged by 32 people, the model's assignments were
+          preferred 90.6% of the time, against 59.4% for a rule-based baseline
+          and 2.5% for random.
         </p>
       </div>
 
@@ -118,21 +128,36 @@
       <div class="prose">
         <h2>Assembly</h2>
         <p>
-          The physical half is where it gets hard: placement tolerance, gripper
-          design, keeping two arms out of each other's way, and sequencing so the
-          structure stays stable as it goes up.
+          The parts are designed to be assembled by a machine rather than a
+          person. Structural blocks are cubes with a lattice interior to keep the
+          weight down, 16 magnets per face in alternating polarity so they can
+          only mate one way, and flat tops the gripper can trust. Panels snap
+          onto them magnetically, with openings cut so the gripper can still
+          reach. A UR20 with Robotiq grippers does the building.
+        </p>
+        <p>
+          The limits are honest ones. Two component types, common objects, simple
+          prompts. Widening any of those is the next problem.
         </p>
       </div>
 
       <figure class="figure">
-        <img
-          src="/images/t2p-timber.jpg"
-          alt="A Universal Robots arm and an ABB arm assembling stacked timber blocks on a fixture table in the robotics lab"
-          width="1600"
-          height="900"
-          loading="lazy"
-        />
-        <figcaption>The same cell working in timber.</figcaption>
+        <div class="video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/cIq9wD3Z1gw"
+            title="Text to Robotic Assembly of Multi Component Objects Using 3D Generative AI and Vision Language Models"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <figcaption>
+          The full pipeline running, from prompt to assembled object. Video by
+          <a href="https://www.youtube.com/@AlexanderHtetKyaw"
+            >Alexander Htet Kyaw</a
+          >, the paper's first author.
+        </figcaption>
       </figure>
 
       <a class="back" href="/#work">&larr; Back to work</a>
