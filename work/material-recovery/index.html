@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contactless Material Assessment &middot; Stefanie Pender</title>
-    <meta name="description" content="Thermal, RGB and depth sensing with machine learning to assess in-situ building materials for reuse, demonstrated on drywall deconstruction." />
+    <meta
+      name="description"
+      content="Thermal, RGB and depth sensing to find the studs and fasteners behind a drywall surface, then cut and lift the panel off intact for reuse."
+    />
     <link rel="canonical" href="https://stefaniepender.com/work/material-recovery/" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -12,7 +15,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Contactless Material Assessment &middot; Stefanie Pender" />
     <meta property="og:url" content="https://stefaniepender.com/work/material-recovery/" />
-    <meta property="og:image" content="https://stefaniepender.com/images/nde-card.jpg" />
+    <meta property="og:image" content="https://stefaniepender.com/images/drywall-card.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
 
@@ -32,80 +35,152 @@
 
     <main id="main" class="wrap">
       <div class="article__head">
-        <p class="eyebrow">Sensing &amp; sustainability &middot; 2025</p>
+        <p class="eyebrow">Sensing &amp; robotic deconstruction &middot; 2025</p>
         <h1>Contactless Material Assessment</h1>
       </div>
 
       <figure class="figure">
         <img
-          src="/images/nde-card.jpg"
-          alt="A false-color thermographic scan of a material sample showing internal voids as dark spots"
+          src="/images/drywall-card.jpg"
+          alt="An ABB robot arm on a mobile base working against a full-height drywall panel in the robotics lab"
           width="1400"
           height="1050"
         />
-        <figcaption>A scan pass with internal voids showing as dark inclusions.</figcaption>
+        <figcaption>The deconstruction cell working on a full-height panel.</figcaption>
       </figure>
 
       <div class="prose">
         <p>
-          When a building comes down, almost everything in it gets thrown away,
-          partly because nobody can tell cheaply, and without destroying it,
-          which material is still good. This combines thermal imaging, RGB and
-          depth sensing with machine learning to judge in-situ material condition
-          without touching it, so the parts worth recovering can be identified
-          before demolition rather than after.
+          Buildings are full of material that is still good, and almost all of it
+          gets landfilled, because nobody can tell what is behind the surface
+          without destroying the surface to find out. This work reads a wall with
+          thermal, RGB and depth sensing, works out where the studs and fasteners
+          are, and then cuts and lifts the panel off intact so it can be used
+          again.
         </p>
 
         <dl class="facts">
           <dt>Role</dt>
-          <dd>Co-author</dd>
+          <dd>Co-author; robotic deconstruction cell</dd>
 
           <dt>Team</dt>
           <dd>
             Sophia Cabral, Mikita Klimenka, Fopefoluwa Bademosi, Damon Lau,
             Stefanie Pender, Lorenzo Villaggi, James Stoddart, James Donnelly,
-            Peter Storey, David Benjamin. Autodesk Research
+            Peter Storey, David Benjamin. Autodesk Research, with Harvard GSD and
+            MIT
           </dd>
-
-          <dt>Stack</dt>
-          <dd>Thermal imaging, RGB and depth sensing, machine learning</dd>
 
           <dt>Paper</dt>
           <dd>
             <a href="https://doi.org/10.3390/su17020585"
               >A Contactless Multi-Modal Sensing Approach for Material Assessment
               and Recovery in Building Deconstruction</a
-            >
-            <em>Sustainability</em> 17(2), 585, 2025. Open access.
+            >. <em>Sustainability</em> 17(2), 585, 2025. Open access.
           </dd>
 
+          <dt>Stack</dt>
+          <dd>
+            Thermal imaging, RGB and depth sensing, machine learning. ABB
+            IRB&nbsp;4600 on an IRC5 controller running External Guided Motion,
+            with a cutting end effector and a vacuum gripper
+          </dd>
         </dl>
 
-        <h2>The problem</h2>
+        <h2>Why drywall</h2>
         <p>
-          Reuse decisions in deconstruction are usually made by eye, or not at
-          all. Anything uncertain gets landfilled, because the cost of finding
-          out, by cutting into the assembly, taking samples and sending them away,
-          exceeds the value of the material. The economics only change if the
-          assessment is fast, cheap, and leaves the building intact.
+          Construction accounts for roughly 40% of global energy use, 35% of
+          worldwide CO<sub>2</sub> emissions, and somewhere between 45% and 65%
+          of everything that goes to landfill. Drywall is the obvious place to
+          start: there is an enormous amount of it, it comes out in sheets, and
+          it is thrown away almost without exception.
+        </p>
+        <p>
+          It does not get thrown away because the gypsum is spent. It gets thrown
+          away because taking a panel off a wall without knowing where the screws
+          are means breaking it.
         </p>
       </div>
 
-      <div class="prose">
-        <h2>Approach</h2>
-        <p>
-          No single sensor answers the question, so the approach fuses several:
-          thermal for what's behind the surface, RGB for what's on it, depth for
-          geometry. Machine learning turns that stack into a condition judgement.
-          The case study ran on drywall deconstruction, the highest-volume and most
-          routinely landfilled material in a building interior.
-        </p>
+      <figure class="figure">
+        <img
+          src="/images/nde-card.jpg"
+          alt="A false-colour thermographic scan of a wall showing vertical stud lines as bright bands and fastener points as dark spots"
+          width="1400"
+          height="1050"
+          loading="lazy"
+        />
+        <figcaption>
+          A thermal pass. Studs read as vertical bands, fasteners as points.
+        </figcaption>
+      </figure>
 
+      <div class="prose">
+        <h2>Seeing through the surface</h2>
+        <p>
+          Studs and fasteners hold heat differently to the cavity between them,
+          so a thermal camera sees structure the eye cannot. Registering those
+          thermal frames against RGB, with lens distortion corrected, puts every
+          stud and screw at a real coordinate on the wall. Depth sensing supplies
+          the geometry around them.
+        </p>
+        <p>
+          What comes out is not a picture. It is a set of cut lines and fastener
+          positions, mapped onto the wall the operator or the robot is about to
+          work on.
+        </p>
+      </div>
+
+      <figure class="figure">
+        <img
+          src="/images/drywall-sim.jpg"
+          alt="Three panels side by side: a simulation of the robot arm tracing a toolpath across a wall panel, and two photographs of the same robot doing it on a real panel in the shop"
+          width="960"
+          height="248"
+          loading="lazy"
+        />
+        <figcaption>
+          Simulated toolpath beside the same pass running on a real panel.
+        </figcaption>
+      </figure>
+
+      <div class="prose">
+        <h2>Taking it apart</h2>
+        <p>
+          Three methods were tested against the same assessment data: cutting
+          with a power saw, removing screws, and automated robotic
+          deconstruction. All three were judged on one thing, whether the panel
+          survived.
+        </p>
+        <p>
+          The robotic cell is an ABB IRB&nbsp;4600, 40&nbsp;kg payload and
+          2.55&nbsp;m reach, on an IRC5 controller running External Guided Motion
+          so the path can be driven from the sensing data rather than taught in
+          advance. It cuts along the computed lines, then switches to a vacuum
+          gripper and lifts the panel off the studs in one piece.
+        </p>
+      </div>
+
+      <figure class="figure">
+        <img
+          src="/images/drywall-workflow.jpg"
+          alt="Wide view of the robot cell in the shop with a drywall panel mounted vertically on a stud frame"
+          width="1600"
+          height="900"
+          loading="lazy"
+        />
+        <figcaption>The cell set up against a framed wall assembly.</figcaption>
+      </figure>
+
+      <div class="prose">
         <h2>Result</h2>
         <p>
-          The case study showed the sensing stack can guide a deconstruction
-          process in practice, with the cost and embodied-carbon savings that
-          follow from recovering material instead of replacing it.
+          The paper's finding is that contactless assessment paired with
+          automated deconstruction is technically workable, cheaper than
+          replacing the material, and better on carbon. It is an early step
+          rather than a finished system, aimed at a real problem: buildings are
+          the largest material stockpile we have, and we currently treat them as
+          waste.
         </p>
       </div>
 
@@ -125,8 +200,6 @@
       </div>
     </footer>
     <script>
-      // Email is assembled at runtime so the address never appears as a
-      // contiguous string in the source. Harvesters that don't run JS get nothing.
       (function () {
         var u = "stefpender", d = ["gmail", "com"].join(".");
         var addr = u + String.fromCharCode(64) + d;
